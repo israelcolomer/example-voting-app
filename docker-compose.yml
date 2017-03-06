@@ -48,7 +48,7 @@ services:
     networks:
       - back-tier
     environment:
-      - POSTGRES_DB=postgres
+      POSTGRES_DB:postgres
 
 volumes:
   db-data:
