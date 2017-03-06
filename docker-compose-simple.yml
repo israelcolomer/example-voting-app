@@ -8,6 +8,8 @@ services:
      - ./vote:/app
     ports:
       - "5000:80"
+    depends_on:
+      - db
 
   redis:
     image: redis:alpine
@@ -15,6 +17,8 @@ services:
 
   worker:
     build: ./worker
+    depends_on:
+      - redis
 
   db:
     image: postgres:9.4
