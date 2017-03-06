@@ -23,11 +23,15 @@ services:
     networks:
       - front-tier
       - back-tier
+    depends_on:
+      - db
 
   worker:
     build: ./worker
     networks:
       - back-tier
+    depends_on:
+      - db
 
   redis:
     image: redis:alpine
@@ -43,6 +47,8 @@ services:
       - "db-data:/var/lib/postgresql/data"
     networks:
       - back-tier
+    environment:
+      - POSTGRES_DB: postgres
 
 volumes:
   db-data:
