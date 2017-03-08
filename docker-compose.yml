@@ -49,7 +49,9 @@ services:
       - back-tier
     environment:
       POSTGRES_DB: postgres
-
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      
 volumes:
   db-data:
 
